@@ -9,13 +9,23 @@ local clothingData = {
     currentClosedCoats = "",
     currentGlove = "",
     currentVest = "",
-    currentPonchos = ""
-
+    currentPonchos = "",
+    currentSleeve = "",
+    currentFoldPants = ""
 }
 
 local ComponentsMale = {}
 local ComponentsFemale = {}
 local playerSkin = {}
+
+local wearableState = {
+    bandana = -1829635046, -- equip bandana
+    sleeves = -1539589426, -- sleeves
+    under = -2081918609, --set component to be under other example corset under pants boots under pants
+    openCollarRolledSleeve = `open_collar_rolled_sleeve`,
+    pomade = `POMADE`,
+    base = `base`, -- resets to default
+}
 
 --enable just to debug
 --[[ AddEventHandler('onClientResourceStart', function (resourceName)
@@ -166,6 +176,25 @@ RegisterNetEvent('addz_qr_clothing:client_OnOffClothing', function(clothingName)
             NativeSetPedComponentEnabled(playerPed, clothingData.currentPonchos, false, true)
             clothingData.currentPonchos = ""
         end
+    elseif clothingName == "sleeve" then
+
+        if clothingData.currentSleeve == "" then
+            clothingData.currentSleeve = exports['qr-clothes']:GetClothesCurrentComponentHash("shirts_full")
+            UpdateWearableState(playerPed, clothingData.currentSleeve, wearableState.sleeves, 0, true , 1)
+        else
+            UpdateWearableState(playerPed, clothingData.currentSleeve, wearableState.base, 0, true , 1)
+            clothingData.currentSleeve = ""
+        end
+
+--[[     elseif clothingName == "foldpants" then
+        if clothingData.currentFoldPants == "" then
+            clothingData.currentFoldPants = exports['qr-clothes']:GetClothesCurrentComponentHash("pants")
+            --UpdateWearableState(playerPed, clothingData.currentFoldPants, -2081918609, 0, true , 1)
+            UpdateWearableState(playerPed, clothingData.currentFoldPants, wearableState.sleeves, 0, true , 1)
+        else
+            UpdateWearableState(playerPed, clothingData.currentFoldPants, wearableState.base, 0, true , 1)
+            clothingData.currentFoldPants = ""
+        end ]]
     end
 
 end)
@@ -223,10 +252,27 @@ RegisterNetEvent('addz_qr_clothing:client_OnOffPonchos', function()
 
 end)
 
+RegisterNetEvent('addz_qr_clothing:client_OnOffSleeve', function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "sleeve")
+
+end)
+
 
 ----------
 --Commands
 ----------
+RegisterCommand('sleeve', function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffSleeve')
+
+end)
+
+--[[ RegisterCommand('foldpants', function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "foldpants")
+
+end) ]]
 
 RegisterCommand('hat', function()
 
@@ -278,10 +324,15 @@ end)
 ------------
 ---function
 ------------
+
+function UpdateWearableState(ped, clothHash, wearableHash, p3, p4 , p5)
+
+    --Citizen.InvokeNative(0x66B957AAC2EAAEAB, ped, Core.Functions.GetClothesCurrentComponentHash("boots"), -2081918609, p3, p4, p5)
+    Citizen.InvokeNative(0x66B957AAC2EAAEAB, ped, clothHash, wearableHash, p3, p4, p5)
+    NativeUpdatePedVariation(ped)
+end
 function RemoveItemFromPedByCategory(ped, clothCategory)
-
     Citizen.InvokeNative(0xDF631E4BCE1B1FC4, ped, clothCategory, true, true, true)
-
 end
 function IsPedUsingComponent(ped, clothCategory)
     return Citizen.InvokeNative(0xFB4891BD7578CDC1, ped, clothCategory)

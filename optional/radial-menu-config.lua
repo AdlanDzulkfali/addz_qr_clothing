@@ -1,4 +1,4 @@
-[5] = {
+[4] = {
     id = 'clothing',
     title = 'Clothing',
     icon = 'user',
@@ -65,6 +65,14 @@
             icon = 'user',
             type = 'client',
             event = 'addz_qr_clothing:client_OnOffPonchos',
+            shouldClose = true
+        },
+        {
+            id = 'onoffsleeve',
+            title = 'Sleeve',
+            icon = 'user',
+            type = 'client',
+            event = 'addz_qr_clothing:client_OnOffSleeve',
             shouldClose = true
         },
     },
