@@ -7,10 +7,11 @@ Here are some available Command available
 - /shirt = toggle shirt on/off
 - /pants = toggle pants on/off
 - /boots = toggle boots on/off
-- /coats = toggle boots on/off
+- /coats = toggle coats on/off
 - /glove = toggle glove on/off
 - /closedcoats = toggle closedcoats on/off
 - /ponchos = toggle ponchos on/off
+- /sleeve = toggle sleeve on/off
 
 NOTE :
 
