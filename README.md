@@ -11,7 +11,12 @@ Here are some available Command available
 - /glove = toggle glove on/off
 - /closedcoats = toggle closedcoats on/off
 - /ponchos = toggle ponchos on/off
+
+Version 1.1.0
 - /sleeve = toggle sleeve on/off
+
+Version 1.2.0
+- /vest = toggle vest on/off
 
 NOTE :
 
