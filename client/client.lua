@@ -11,7 +11,7 @@ local clothingData = {
     currentVest = "",
     currentPonchos = "",
     currentSleeve = "",
-    currentFoldPants = ""
+    currentFoldPants = "",
 }
 
 local ComponentsMale = {}
@@ -176,6 +176,17 @@ RegisterNetEvent('addz_qr_clothing:client_OnOffClothing', function(clothingName)
             NativeSetPedComponentEnabled(playerPed, clothingData.currentPonchos, false, true)
             clothingData.currentPonchos = ""
         end
+    elseif clothingName == "vest" then
+        if clothingData.currentVest == "" then
+            clothingData.currentVest = exports['qr-clothes']:GetClothesCurrentComponentHash("vests")
+            local isWearVest = IsPedUsingComponent(playerPed, Config.ClothingCategory.Vest)
+            if isWearVest then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Vest)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentVest, false, true)
+            clothingData.currentVest = ""
+        end
     elseif clothingName == "sleeve" then
 
         if clothingData.currentSleeve == "" then
@@ -252,6 +263,12 @@ RegisterNetEvent('addz_qr_clothing:client_OnOffPonchos', function()
 
 end)
 
+RegisterNetEvent('addz_qr_clothing:client_OnOffVest', function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "vest")
+
+end)
+
 RegisterNetEvent('addz_qr_clothing:client_OnOffSleeve', function()
 
     TriggerEvent('addz_qr_clothing:client_OnOffClothing', "sleeve")
@@ -319,6 +336,12 @@ end)
 RegisterCommand('ponchos',function()
 
     TriggerEvent('addz_qr_clothing:client_OnOffPonchos')
+
+end)
+
+RegisterCommand('vest',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffVest')
 
 end)
 ------------

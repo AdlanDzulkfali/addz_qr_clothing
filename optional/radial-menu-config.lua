@@ -75,5 +75,13 @@
             event = 'addz_qr_clothing:client_OnOffSleeve',
             shouldClose = true
         },
+        {
+            id = 'onoffvest',
+            title = 'Vest',
+            icon = 'user',
+            type = 'client',
+            event = 'addz_qr_clothing:client_OnOffVest',
+            shouldClose = true
+        },
     },
 }
