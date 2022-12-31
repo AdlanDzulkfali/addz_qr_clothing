@@ -12,6 +12,25 @@ local clothingData = {
     currentPonchos = "",
     currentSleeve = "",
     currentFoldPants = "",
+    currentEyewear = "",
+    currentBelts = "",
+    currentCloaks = "",
+    currentChaps = "",
+    currentBadges = "",
+    currentMasks = "",
+    currentNeckwear = "",
+    currentAccessories = "",
+    currentGauntlets = "",
+    currentNeckties = "",
+    currentLoadouts = "",
+    currentSuspenders = "",
+    currentSatchels = "",
+    currentGunbelts = "",
+    currentBuckles = "",
+    currentSkirts = "",
+    currentArmor = "",
+    currentHair = "",
+    
 }
 
 local ComponentsMale = {}
@@ -196,6 +215,241 @@ RegisterNetEvent('addz_qr_clothing:client_OnOffClothing', function(clothingName)
             UpdateWearableState(playerPed, clothingData.currentSleeve, wearableState.base, 0, true , 1)
             clothingData.currentSleeve = ""
         end
+    elseif clothingName == "eyewear" then
+        if clothingData.currentEyewear == "" then
+            clothingData.currentEyewear = exports['qr-clothes']:GetClothesCurrentComponentHash("eyewear")
+            local isWearEyewear = IsPedUsingComponent(playerPed, Config.ClothingCategory.Eyewear)
+            if isWearEyewear then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Eyewear)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentEyewear, false, true)
+            clothingData.currentEyewear = ""
+        end
+    elseif clothingName == "belts" then
+        if clothingData.currentBelts == "" then
+            clothingData.currentBelts = exports['qr-clothes']:GetClothesCurrentComponentHash("belts")
+            local isWearBelts = IsPedUsingComponent(playerPed, Config.ClothingCategory.Belts)
+            if isWearBelts then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Belts)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentBelts, false, true)
+            clothingData.currentBelts = ""
+        end
+    elseif clothingName == "cloaks" then
+        if clothingData.currentCloaks == "" then
+            clothingData.currentCloaks = exports['qr-clothes']:GetClothesCurrentComponentHash("cloaks")
+            local isWearCloaks = IsPedUsingComponent(playerPed, Config.ClothingCategory.Cloaks)
+            if isWearCloaks then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Cloaks)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentCloaks, false, true)
+            clothingData.currentCloaks = ""
+        end
+    elseif clothingName == "chaps" then
+        if clothingData.currentChaps == "" then
+            clothingData.currentChaps = exports['qr-clothes']:GetClothesCurrentComponentHash("chaps")
+            local isWearChaps = IsPedUsingComponent(playerPed, Config.ClothingCategory.Chaps)
+            if isWearChaps then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Chaps)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentChaps, false, true)
+            clothingData.currentChaps = ""
+        end
+    elseif clothingName == "badges" then
+        if clothingData.currentBadges == "" then
+            clothingData.currentBadges = exports['qr-clothes']:GetClothesCurrentComponentHash("badges")
+            local isWearBadges = IsPedUsingComponent(playerPed, Config.ClothingCategory.Badges)
+            if isWearBadges then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Badges)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentBadges, false, true)
+            clothingData.currentBadges = ""
+        end
+    elseif clothingName == "masks" then
+        if clothingData.currentMasks == "" then
+            clothingData.currentMasks = exports['qr-clothes']:GetClothesCurrentComponentHash("masks")
+            local isWearMasks = IsPedUsingComponent(playerPed, Config.ClothingCategory.Masks)
+            if isWearMasks then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Masks)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentMasks, false, true)
+            clothingData.currentMasks = ""
+        end
+    elseif clothingName == "neckwear" then
+        if clothingData.currentNeckwear == "" then
+            clothingData.currentNeckwear = exports['qr-clothes']:GetClothesCurrentComponentHash("neckwear")
+            local isWearNeckwear = IsPedUsingComponent(playerPed, Config.ClothingCategory.Neckwear)
+            if isWearNeckwear then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Neckwear)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentNeckwear, false, true)
+            clothingData.currentNeckwear = ""
+        end
+    elseif clothingName == "accessories" then
+        if clothingData.currentAccessories == "" then
+            clothingData.currentAccessories = exports['qr-clothes']:GetClothesCurrentComponentHash("accessories")
+            local isWearAccessories = IsPedUsingComponent(playerPed, Config.ClothingCategory.Accessories)
+            if isWearAccessories then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Accessories)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentAccessories, false, true)
+            clothingData.currentAccessories = ""
+        end
+    elseif clothingName == "gauntlets" then
+        if clothingData.currentGauntlets == "" then
+            clothingData.currentGauntlets = exports['qr-clothes']:GetClothesCurrentComponentHash("gauntlets")
+            local isWearGauntlets = IsPedUsingComponent(playerPed, Config.ClothingCategory.Gauntlets)
+            if isWearGauntlets then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Gauntlets)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentGauntlets, false, true)
+            clothingData.currentGauntlets = ""
+        end
+    elseif clothingName == "neckties" then
+        if clothingData.currentNeckties == "" then
+            clothingData.currentNeckties = exports['qr-clothes']:GetClothesCurrentComponentHash("neckties")
+            local isWearNeckties = IsPedUsingComponent(playerPed, Config.ClothingCategory.Neckties)
+            if isWearNeckties then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Neckties)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentNeckties, false, true)
+            clothingData.currentNeckties = ""
+        end
+    elseif clothingName == "loadouts" then
+        if clothingData.currentLoadouts == "" then
+            clothingData.currentLoadouts = exports['qr-clothes']:GetClothesCurrentComponentHash("loadouts")
+            local isWearLoadouts = IsPedUsingComponent(playerPed, Config.ClothingCategory.Loadouts)
+            if isWearLoadouts then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Loadouts)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentLoadouts, false, true)
+            clothingData.currentLoadouts = ""
+        end
+    elseif clothingName == "suspenders" then
+        if clothingData.currentSuspenders == "" then
+            clothingData.currentSuspenders = exports['qr-clothes']:GetClothesCurrentComponentHash("shirts_full")
+            local isWearSuspenders = IsPedUsingComponent(playerPed, Config.ClothingCategory.Suspenders)
+            if isWearSuspenders then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Suspenders)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentSuspenders, false, true)
+            clothingData.currentSuspenders = ""
+        end
+    elseif clothingName == "satchels" then
+        if clothingData.currentSatchels == "" then
+            clothingData.currentSatchels = exports['qr-clothes']:GetClothesCurrentComponentHash("satchels")
+            local isWearSatchels = IsPedUsingComponent(playerPed, Config.ClothingCategory.Satchels)
+            if isWearSatchels then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Satchels)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentSatchels, false, true)
+            clothingData.currentSatchels = ""
+        end
+    elseif clothingName == "gunbelts" then
+        if clothingData.currentGunbelts == "" then
+            clothingData.currentGunbelts = exports['qr-clothes']:GetClothesCurrentComponentHash("gunbelts")
+            local isWearGunbelts = IsPedUsingComponent(playerPed, Config.ClothingCategory.Gunbelts)
+            if isWearGunbelts then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Gunbelts)
+                Wait(10)
+                LoadLowerBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentGunbelts, false, true)
+            clothingData.currentGunbelts = ""
+        end
+    elseif clothingName == "buckles" then
+        if clothingData.currentBuckles == "" then
+            clothingData.currentBuckles = exports['qr-clothes']:GetClothesCurrentComponentHash("belt_buckles")
+            local isWearBuckles = IsPedUsingComponent(playerPed, Config.ClothingCategory.Buckles)
+            if isWearBuckles then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Buckles)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentBuckles, false, true)
+            clothingData.currentBuckles = ""
+        end
+    elseif clothingName == "skirts" then
+        if clothingData.currentSkirts == "" then
+            clothingData.currentSkirts = exports['qr-clothes']:GetClothesCurrentComponentHash("skirts")
+            local isWearSkirts = IsPedUsingComponent(playerPed, Config.ClothingCategory.Skirts)
+            if isWearSkirts then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Skirts)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentSkirts, false, true)
+            clothingData.currentSkirts = ""
+        end
+    elseif clothingName == "armor" then
+        if clothingData.currentArmor == "" then
+            clothingData.currentArmor = exports['qr-clothes']:GetClothesCurrentComponentHash("armor")
+            local isWearArmor = IsPedUsingComponent(playerPed, Config.ClothingCategory.Armor)
+            if isWearArmor then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Armor)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentArmor, false, true)
+            clothingData.currentArmor = ""
+        end
+
+    elseif clothingName == "hair_accessories" then
+        if clothingData.currentHair == "" then
+            clothingData.currentHair = exports['qr-clothes']:GetClothesCurrentComponentHash("hair_accessories")
+            local isWearArmor = IsPedUsingComponent(playerPed, Config.ClothingCategory.Hair)
+            if isWearArmor then
+                RemoveItemFromPedByCategory(playerPed, Config.ClothingCategory.Hair)
+                Wait(10)
+                LoadUpperBody(playerPed, playerSkin)
+            end
+        else
+            NativeSetPedComponentEnabled(playerPed, clothingData.currentHair, false, true)
+            clothingData.currentHair = ""
+        end
 
 --[[     elseif clothingName == "foldpants" then
         if clothingData.currentFoldPants == "" then
@@ -342,6 +596,115 @@ end)
 RegisterCommand('vest',function()
 
     TriggerEvent('addz_qr_clothing:client_OnOffVest')
+
+end)
+
+RegisterCommand('eyewear',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "eyewear")
+
+end)
+
+RegisterCommand('belts',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "belts")
+
+end)
+
+RegisterCommand('cloaks',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "cloaks")
+
+end)
+
+RegisterCommand('chaps',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "chaps")
+
+end)
+
+RegisterCommand('badges',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "badges")
+
+end)
+
+RegisterCommand('masks',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "masks")
+
+end)
+
+RegisterCommand('neckwear',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "neckwear")
+
+end)
+
+RegisterCommand('accessories',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "accessories")
+
+end)
+
+RegisterCommand('gauntlets',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "gauntlets")
+
+end)
+
+RegisterCommand('neckties',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "neckties")
+
+end)
+
+RegisterCommand('loadouts',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "loadouts")
+
+end)
+
+RegisterCommand('suspenders',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "suspenders")
+
+end)
+
+RegisterCommand('satchels',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "satchels")
+
+end)
+
+RegisterCommand('gunbelts',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "gunbelts")
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "buckles")
+
+end)
+
+RegisterCommand('buckles',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "buckles")
+
+end)
+
+RegisterCommand('skirts',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "skirts")
+
+end)
+
+RegisterCommand('armor',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "armor")
+
+end)
+
+RegisterCommand('hairaccess',function()
+
+    TriggerEvent('addz_qr_clothing:client_OnOffClothing', "hair_accessories")
 
 end)
 ------------
